@@ -1,2 +1,3 @@
-export * from './dashboard/Dashboard.tsx'
-export * from './home/Home.tsx'
+export * from './Dashboard/Dashboard.tsx'
+export * from './Home/Home.tsx'
+export * from './NotFound/NotFound.tsx'

@@ -1,10 +1,19 @@
 import { List, ListItem, ListItemButton, ListItemText } from '@mui/material'
+import { useAppDispatch } from '@/shared/hooks'
+import { fetchProducts } from '@/entities/product/api'
 import styles from './style.module.scss'
 
 export function Dashboard(): JSX.Element {
+	const dispatch = useAppDispatch()
+
 	return (
 		<div className={styles.wrapper}>
-			<header className={styles.header}>Header</header>
+			<header className={styles.header}>
+				Header
+				<button onClick={() => dispatch(fetchProducts())}>
+					Найти продукты
+				</button>
+			</header>
 			<aside className={styles.aside}>
 				<List>
 					{['Товары', 'Заказы', 'Категории'].map(text => (

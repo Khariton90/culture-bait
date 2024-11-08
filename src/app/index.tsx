@@ -1,8 +1,8 @@
-import { Dashboard } from '@/pages'
+import { AppProvider } from './providers'
 import './index.scss'
 
 function App(): JSX.Element {
-	return <Dashboard />
+	return <AppProvider />
 }
 
 export default App

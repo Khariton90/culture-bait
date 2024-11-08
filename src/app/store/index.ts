@@ -3,7 +3,7 @@ import { createApi } from '@/shared/api'
 
 export const api = createApi()
 
-export const store = configureStore({
+const store = configureStore({
 	reducer: {},
 	middleware: getDefaultMiddleware =>
 		getDefaultMiddleware({
@@ -12,3 +12,5 @@ export const store = configureStore({
 			},
 		}),
 })
+
+export default store

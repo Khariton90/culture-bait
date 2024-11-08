@@ -9,6 +9,13 @@
 	--color-grey: #ccc;
 }
 
+@mixin flexCenter($direction: row) {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: $direction;
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -19,4 +26,8 @@ body {
 
 .page {
 	min-height: 100vh;
+}
+
+.notFound {
+	@include flexCenter();
 }
