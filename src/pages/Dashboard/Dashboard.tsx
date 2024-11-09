@@ -1,6 +1,6 @@
 import { List, ListItem, ListItemButton, ListItemText } from '@mui/material'
 import { useAppDispatch } from '@/shared/hooks'
-import { fetchProducts } from '@/entities/product/api'
+import { fetchProducts } from '@/entities/Product/api'
 import styles from './style.module.scss'
 
 export function Dashboard(): JSX.Element {

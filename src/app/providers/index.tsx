@@ -1,21 +1,13 @@
-import { createTheme, ThemeProvider } from '@mui/material'
-import { BrowserProvider } from './browser-provider'
-import { StoreProvider } from './store-provider'
-
-const theme = createTheme({
-	palette: {
-		primary: {
-			main: '#51b56d',
-		},
-	},
-})
+import { BrowserProvider } from './BrowserProvider'
+import { StoreProvider } from './StoreProvider'
+import { AppThemeProvider } from './AppThemeProvider'
 
 export function AppProvider() {
 	return (
 		<StoreProvider>
-			<ThemeProvider theme={theme}>
+			<AppThemeProvider>
 				<BrowserProvider />
-			</ThemeProvider>
+			</AppThemeProvider>
 		</StoreProvider>
 	)
 }

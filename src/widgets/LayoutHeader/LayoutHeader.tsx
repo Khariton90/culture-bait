@@ -1,15 +1,17 @@
 import { IconButton, InputBase, Button, Typography } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
-import { Link } from '@mui/material'
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline'
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import SetMealIcon from '@mui/icons-material/SetMeal'
-import cartIcon from '@/shared/assets/cart.svg'
 import styles from './styles.module.scss'
-import logoIcon from '@/shared/assets/logo.svg'
-import marker from '@/shared/assets/marker.svg'
 
-export function Header(): JSX.Element {
+import marker from '@/shared/assets/marker.svg'
+import { ReactNode } from 'react'
+import { LayoutSmartLogo } from '@/shared/ui'
+
+interface Props {
+	rightSlot: ReactNode
+}
+
+export function LayoutHeader({ rightSlot }: Props): JSX.Element {
 	return (
 		<header className={styles.header}>
 			<div className={styles.headerTop}>
@@ -51,9 +53,7 @@ export function Header(): JSX.Element {
 			</div>
 			<div className={styles.headerBottom}>
 				<div className={styles.catalog}>
-					<a href='/' className={styles.logo}>
-						<img src={logoIcon} alt='Логотип' />
-					</a>
+					<LayoutSmartLogo />
 					<Button
 						color='primary'
 						title='Каталог'
@@ -73,17 +73,7 @@ export function Header(): JSX.Element {
 					</div>
 				</div>
 
-				<nav className={styles.navigation}>
-					<Link href='#' className={styles.headerLink} color='primary'>
-						<FavoriteBorderIcon fontSize='large' />
-					</Link>
-					<Link href='#' className={styles.headerLink} color='primary'>
-						<PersonOutlineIcon fontSize='large' />
-					</Link>
-					<Link href='#' className={styles.headerCard} color='primary'>
-						<img src={cartIcon} alt='Корзина' />
-					</Link>
-				</nav>
+				<div>{rightSlot}</div>
 			</div>
 		</header>
 	)
