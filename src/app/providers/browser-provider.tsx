@@ -9,11 +9,11 @@ const router = createBrowserRouter(
 			children: [
 				{
 					path: AppRoute.Home,
-					children: [{ path: '*', element: <Home /> }],
+					element: <Home />,
 				},
 				{
 					path: AppRoute.Dashboard,
-					children: [{ path: '*', element: <Dashboard /> }],
+					element: <Dashboard />,
 				},
 			],
 		},

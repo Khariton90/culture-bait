@@ -17,6 +17,10 @@ export default defineConfig({
 		preprocessorOptions: {
 			scss: {
 				api: 'modern-compiler',
+				additionalData: `
+         		 @use '@/shared/lib/sass/variables' as *;    
+                 @use '@/shared/lib/sass/mixins' as *;
+        `,
 			},
 		},
 	},
