@@ -1,0 +1,62 @@
+.card {
+	width: clamp(180px, 100%, 260px);
+	display: flex;
+	flex-direction: column;
+}
+
+.figure {
+	margin: 0;
+	border-radius: $border-radius;
+	overflow: hidden;
+	width: 240px;
+	height: 240px;
+	@include flexCenter();
+	box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+		rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+	& img {
+		object-fit: contain;
+		width: 100%;
+	}
+}
+
+.top {
+	position: relative;
+}
+
+.feed {
+	position: absolute;
+	bottom: 4px;
+	right: 4px;
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.panel {
+	margin-top: auto;
+}
+
+.rowBetween {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.rate {
+	border-radius: 2px;
+	background: rgb($color-green, 0.6);
+	backdrop-filter: blur(5.5px);
+	@include flexCenter();
+	color: #fff;
+	gap: 2px;
+	padding: 0 4px;
+}
+
+.title {
+	margin: 12px 0;
+}
+
+.code {
+	color: $color-grey;
+	font-size: $small-font-size;
+}
