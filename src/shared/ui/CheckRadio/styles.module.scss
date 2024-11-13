@@ -1,0 +1,21 @@
+.label {
+	position: relative;
+	border-radius: $border-radius;
+	font-size: $small-font-size;
+	color: $color-black;
+	padding: 2px 8px;
+	margin: 4px 0;
+	background: rgba($color-light, 0.2);
+	border: 1px solid transparent;
+	max-width: max-content;
+	cursor: pointer;
+
+	&:hover {
+		border: 1px solid $color-light;
+	}
+
+	&:has(input:checked) {
+		background: $color-light;
+		border: 1px solid $color-green;
+	}
+}

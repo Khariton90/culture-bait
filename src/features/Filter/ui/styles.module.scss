@@ -1,8 +1,6 @@
-$pd: 4px;
-
 .filter {
 	position: relative;
-	padding: $pd;
+	padding: 4px;
 }
 
 .form {
@@ -17,33 +15,11 @@ $pd: 4px;
 
 .legend {
 	font-weight: 600;
-	padding: 10px $pd;
+	padding: 10px 4px;
 }
 
 .title {
 	margin: 0;
-}
-
-.label {
-	position: relative;
-	border-radius: $border-radius;
-	font-size: $small-font-size;
-	color: $color-black;
-	padding: 2px calc($pd * 2);
-	margin: $pd 0;
-	background: rgba($color-light, 0.2);
-	border: 1px solid transparent;
-	max-width: max-content;
-	cursor: pointer;
-
-	&:hover {
-		border: 1px solid $color-light;
-	}
-
-	&:has(input:checked) {
-		background: $color-light;
-		border: 1px solid $color-green;
-	}
 }
 
 .double {
@@ -60,6 +36,6 @@ $pd: 4px;
 		display: flex;
 		align-items: flex-start;
 		gap: 2px;
-		padding: calc($pd * 2);
+		padding: 8px;
 	}
 }

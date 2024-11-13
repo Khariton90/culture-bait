@@ -2,15 +2,15 @@
 	position: absolute;
 	display: flex;
 	flex-direction: column;
-	row-gap: 4px;
-	top: 10px;
+	row-gap: 10px;
+	top: 6px;
 	right: -20px;
 }
 
 .ribbon {
 	position: relative;
 	padding: 2px 12px;
-	box-shadow: 1px 1px 3px $color-grey;
+	box-shadow: 1px 1px 3px $color-black;
 	color: $color-white;
 	font-size: $small-font-size;
 	backdrop-filter: blur(1px);
@@ -29,17 +29,17 @@
 }
 
 .sale {
-	background: rgba($sale-color, $alpha: 0.8);
+	background: rgba($sale-color, 0.7);
 }
 
 .hits {
-	background: rgba($color-hits, $alpha: 0.8);
+	background: rgba($color-hits, 0.7);
 }
 
 .newItems {
-	background: rgba($color-green, $alpha: 0.8);
+	background: rgba($color-green, 0.7);
 }
 
 .stock {
-	background: rgba($stock-color, $alpha: 0.8);
+	background: rgba($stock-color, 0.7);
 }

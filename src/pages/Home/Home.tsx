@@ -5,6 +5,7 @@ import product2 from '@/shared/assets/product2.jpg'
 import product3 from '@/shared/assets/product3.jpg'
 import './Home.scss'
 import { Filter } from '@/features/Filter'
+import { Sorting } from '@/features'
 
 const mockProducts: Product[] = [
 	{
@@ -86,7 +87,7 @@ export function Home(): JSX.Element {
 				<LayoutHeader rightSlot={<LayoutNavigation />} />
 				<main className='content'>
 					<Filter />
-					<BaseProductList products={mockProducts} />
+					<BaseProductList products={mockProducts} sortSlot={<Sorting />} />
 				</main>
 			</div>
 		</div>
