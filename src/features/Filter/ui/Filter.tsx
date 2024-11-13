@@ -24,7 +24,7 @@ export function Filter(): JSX.Element {
 	return (
 		<div className={styles.filter}>
 			<form className={styles.form}>
-				<h3>Фильтр</h3>
+				<h3 className={styles.title}>Фильтр</h3>
 
 				<fieldset className={cn(styles.fieldset, styles.double)}>
 					<legend className={styles.legend}>Категории</legend>
@@ -58,7 +58,6 @@ export function Filter(): JSX.Element {
 
 				<fieldset className={cn(styles.fieldset, styles.rating)}>
 					<legend className={styles.legend}>Рейтинг</legend>
-
 					{ratings.map(rate => (
 						<label key={rate} className={styles.label}>
 							<span>{rate}</span>

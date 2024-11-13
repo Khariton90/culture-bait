@@ -2,6 +2,7 @@
 	width: clamp(180px, 100%, 260px);
 	display: flex;
 	flex-direction: column;
+	position: relative;
 }
 
 .figure {
@@ -44,10 +45,10 @@
 
 .rate {
 	border-radius: 2px;
-	background: rgb($color-green, 0.6);
-	backdrop-filter: blur(5.5px);
+	background: $color-light;
+	backdrop-filter: blur(6px);
 	@include flexCenter();
-	color: #fff;
+	color: $color-black;
 	gap: 2px;
 	padding: 0 4px;
 }

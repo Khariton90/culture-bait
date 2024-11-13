@@ -1,0 +1,45 @@
+.ribbonBox {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	row-gap: 4px;
+	top: 10px;
+	right: -20px;
+}
+
+.ribbon {
+	position: relative;
+	padding: 2px 12px;
+	box-shadow: 1px 1px 3px $color-grey;
+	color: $color-white;
+	font-size: $small-font-size;
+	backdrop-filter: blur(1px);
+}
+
+.ribbon:after {
+	content: '';
+	position: absolute;
+	top: 104%;
+	right: 0;
+	width: 0;
+	height: 0;
+	line-height: 0;
+	border-right: 20px solid transparent;
+	border-top: 10px solid $color-grey;
+}
+
+.sale {
+	background: rgba($sale-color, $alpha: 0.8);
+}
+
+.hits {
+	background: rgba($color-hits, $alpha: 0.8);
+}
+
+.newItems {
+	background: rgba($color-green, $alpha: 0.8);
+}
+
+.stock {
+	background: rgba($stock-color, $alpha: 0.8);
+}

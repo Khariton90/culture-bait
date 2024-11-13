@@ -1,6 +1,6 @@
 import ratingIcon from '@/shared/images/icons/rating.svg'
 import { Button } from '@mui/material'
-import { Product } from '@/entities'
+import { Product, RibbonList } from '@/entities'
 import { ReactNode } from 'react'
 import styles from './styles.module.scss'
 
@@ -13,6 +13,7 @@ export function ProductCard({ product, wishSlot }: Props): JSX.Element {
 	return (
 		<article className={styles.card}>
 			<div className={styles.top}>
+				<RibbonList hits />
 				<figure className={styles.figure}>
 					<img className='productImage' src={product.img} alt={product.title} />
 				</figure>
