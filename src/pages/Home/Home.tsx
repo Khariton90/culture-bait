@@ -4,6 +4,7 @@ import product1 from '@/shared/assets/product1.jpg'
 import product2 from '@/shared/assets/product2.jpg'
 import product3 from '@/shared/assets/product3.jpg'
 import './Home.scss'
+import { Filter } from '@/features/Filter'
 
 const mockProducts: Product[] = [
 	{
@@ -41,6 +42,41 @@ const mockProducts: Product[] = [
 		price: 2400,
 		code: 505505,
 	},
+	{
+		id: 5,
+		img: product1,
+		title: 'Катушка',
+		description: 'Lorem ipsum dolor sit ',
+		price: 2400,
+		code: 505505,
+	},
+	{
+		id: 6,
+		img: product2,
+		title: 'Катушка',
+		description:
+			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quis',
+		price: 2400,
+		code: 505505,
+	},
+	{
+		id: 7,
+		img: product1,
+		title: 'Катушка',
+		description:
+			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quis',
+		price: 2400,
+		code: 505505,
+	},
+	{
+		id: 8,
+		img: product3,
+		title: 'Катушка',
+		description:
+			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quis',
+		price: 2400,
+		code: 505505,
+	},
 ]
 
 export function Home(): JSX.Element {
@@ -49,7 +85,7 @@ export function Home(): JSX.Element {
 			<div className='container'>
 				<LayoutHeader rightSlot={<LayoutNavigation />} />
 				<main className='content'>
-					<div className='filter'></div>
+					<Filter />
 					<BaseProductList products={mockProducts} />
 				</main>
 			</div>

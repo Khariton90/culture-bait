@@ -9,7 +9,7 @@ export function AddToWishlistButton(): JSX.Element {
 		setActive(prev => !prev)
 	}
 
-	const fill = active ? '#ff9d0b' : '#ccc'
+	const fill = active ? '#ff9d0b' : '#e3f4e8'
 
 	return (
 		<a href='/' className={styles.favorite} onClick={handleChange}>

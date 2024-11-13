@@ -8,10 +8,10 @@ export function LayoutNavigation(): JSX.Element {
 	return (
 		<nav className={styles.navigation}>
 			<Link href='#' className={styles.headerLink} color='primary'>
-				<FavoriteBorderIcon fontSize='large' />
+				<FavoriteBorderIcon fontSize='medium' />
 			</Link>
 			<Link href='#' className={styles.headerLink} color='primary'>
-				<PersonOutlineIcon fontSize='large' />
+				<PersonOutlineIcon fontSize='medium' />
 			</Link>
 			<Link href='#' className={styles.headerCard} color='primary'>
 				<img src={cartIcon} alt='Корзина' />
