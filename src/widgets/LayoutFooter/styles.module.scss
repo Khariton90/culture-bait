@@ -1,0 +1,18 @@
+.footer {
+	background: $color-light;
+	color: $color-black;
+}
+
+.bottom {
+	padding: 10px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.list {
+	margin: 0;
+	padding: 0;
+	@include flexCenter();
+	column-gap: 20px;
+}

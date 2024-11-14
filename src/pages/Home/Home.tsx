@@ -1,4 +1,9 @@
-import { LayoutHeader, LayoutNavigation, BaseProductList } from '@/widgets'
+import {
+	LayoutHeader,
+	LayoutNavigation,
+	BaseProductList,
+	LayoutFooter,
+} from '@/widgets'
 import { Product } from '@/entities'
 import product1 from '@/shared/assets/product1.jpg'
 import product2 from '@/shared/assets/product2.jpg'
@@ -90,6 +95,8 @@ export function Home(): JSX.Element {
 					<BaseProductList products={mockProducts} sortSlot={<Sorting />} />
 				</main>
 			</div>
+
+			<LayoutFooter />
 		</div>
 	)
 }

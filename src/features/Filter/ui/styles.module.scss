@@ -11,6 +11,12 @@
 .fieldset {
 	margin: 12px 0;
 	padding: 0;
+	border: 1px solid transparent;
+	padding: 8px;
+
+	&:focus-within {
+		border: 1px solid $color-light;
+	}
 }
 
 .legend {
