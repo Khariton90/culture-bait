@@ -13,7 +13,7 @@ export function ProductCard({ product, wishSlot }: Props): JSX.Element {
 	return (
 		<article className={styles.card}>
 			<div className={styles.top}>
-				<RibbonList hits sale stock newItems />
+				<RibbonList isNew isBestSeller onSale clearance />
 				<figure className={styles.figure}>
 					<img className='productImage' src={product.img} alt={product.title} />
 				</figure>

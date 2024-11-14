@@ -20,6 +20,10 @@ const mockProducts: Product[] = [
 		description: 'Lorem ipsum dolor sit ',
 		price: 2400,
 		code: 505505,
+		isNew: false,
+		isBestSeller: false,
+		onSale: false,
+		clearance: false,
 	},
 	{
 		id: 2,
@@ -29,6 +33,10 @@ const mockProducts: Product[] = [
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quis',
 		price: 2400,
 		code: 505505,
+		isNew: false,
+		isBestSeller: false,
+		onSale: false,
+		clearance: false,
 	},
 	{
 		id: 3,
@@ -38,6 +46,10 @@ const mockProducts: Product[] = [
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quis',
 		price: 2400,
 		code: 505505,
+		isNew: false,
+		isBestSeller: false,
+		onSale: false,
+		clearance: false,
 	},
 	{
 		id: 4,
@@ -47,6 +59,10 @@ const mockProducts: Product[] = [
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quis',
 		price: 2400,
 		code: 505505,
+		isNew: false,
+		isBestSeller: false,
+		onSale: false,
+		clearance: false,
 	},
 	{
 		id: 5,
@@ -55,6 +71,10 @@ const mockProducts: Product[] = [
 		description: 'Lorem ipsum dolor sit ',
 		price: 2400,
 		code: 505505,
+		isNew: false,
+		isBestSeller: false,
+		onSale: false,
+		clearance: false,
 	},
 	{
 		id: 6,
@@ -64,6 +84,10 @@ const mockProducts: Product[] = [
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quis',
 		price: 2400,
 		code: 505505,
+		isNew: false,
+		isBestSeller: false,
+		onSale: false,
+		clearance: false,
 	},
 	{
 		id: 7,
@@ -73,6 +97,10 @@ const mockProducts: Product[] = [
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quis',
 		price: 2400,
 		code: 505505,
+		isNew: false,
+		isBestSeller: false,
+		onSale: false,
+		clearance: false,
 	},
 	{
 		id: 8,
@@ -82,6 +110,10 @@ const mockProducts: Product[] = [
 			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur quis',
 		price: 2400,
 		code: 505505,
+		isNew: false,
+		isBestSeller: false,
+		onSale: false,
+		clearance: false,
 	},
 ]
 

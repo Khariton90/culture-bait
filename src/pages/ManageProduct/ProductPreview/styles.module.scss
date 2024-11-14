@@ -1,0 +1,57 @@
+@mixin flexBetween() {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.previewWrapper {
+	display: grid;
+	grid-template-columns: 260px 60px;
+	gap: 10px;
+}
+
+.preview {
+	& img {
+		max-height: 100%;
+		max-width: 100%;
+		width: auto;
+	}
+}
+
+.card {
+	width: 260px;
+	height: 420px;
+	@include flexCenter();
+}
+
+.mainImage {
+	width: 240px;
+	height: 240px;
+	border: 1px solid $color-black;
+	@include flexCenter();
+}
+
+.previewItem {
+	width: 60px;
+	height: 60px;
+	border: 1px solid $color-black;
+}
+.card,
+.previewItem {
+	padding: 8px;
+	background: $color-light;
+}
+
+.previewControls {
+	@include flexBetween();
+	padding: 10px;
+	max-width: 260px;
+}
+
+.previewList {
+	@include flexBetween();
+	width: 60px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}

@@ -5,4 +5,8 @@ export interface Product {
 	description: string
 	price: number
 	code: number
+	isNew: boolean
+	isBestSeller: boolean
+	onSale: boolean
+	clearance: boolean
 }

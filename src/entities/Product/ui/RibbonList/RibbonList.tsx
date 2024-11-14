@@ -2,24 +2,24 @@ import { RibbonItem } from './RIbbonItem'
 import styles from './styles.module.scss'
 
 interface Props {
-	sale?: boolean
-	hits?: boolean
-	newItems?: boolean
-	stock?: boolean
+	isNew?: boolean
+	isBestSeller?: boolean
+	onSale?: boolean
+	clearance?: boolean
 }
 
 export function RibbonList({
-	newItems,
-	stock,
-	hits,
-	sale,
+	isNew,
+	isBestSeller,
+	onSale,
+	clearance,
 }: Props): JSX.Element {
 	return (
 		<div className={styles.ribbonBox}>
-			{newItems && <RibbonItem type={'newItems'} />}
-			{hits && <RibbonItem type={'hits'} />}
-			{stock && <RibbonItem type={'stock'} />}
-			{sale && <RibbonItem type={'sale'} />}
+			{isNew && <RibbonItem type={'newItems'} />}
+			{isBestSeller && <RibbonItem type={'hits'} />}
+			{onSale && <RibbonItem type={'stock'} />}
+			{clearance && <RibbonItem type={'sale'} />}
 		</div>
 	)
 }

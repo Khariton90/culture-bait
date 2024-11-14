@@ -1,4 +1,5 @@
-import { Home, Dashboard, NotFound } from '@/pages'
+import { Dashboard, NotFound } from '@/pages'
+import { ManageProduct } from '@/pages/ManageProduct/ManageProduct'
 import { AppRoute } from '@/shared/types'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
@@ -9,11 +10,15 @@ const router = createBrowserRouter(
 			children: [
 				{
 					path: AppRoute.Home,
-					element: <Home />,
+					element: <ManageProduct />,
 				},
 				{
 					path: AppRoute.Dashboard,
 					element: <Dashboard />,
+				},
+				{
+					path: AppRoute.СreateProduct,
+					element: <ManageProduct />,
 				},
 			],
 		},
