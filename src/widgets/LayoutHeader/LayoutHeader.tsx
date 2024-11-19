@@ -2,7 +2,6 @@ import { IconButton, InputBase, Button, Typography } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
 import SetMealIcon from '@mui/icons-material/SetMeal'
 import styles from './styles.module.scss'
-
 import marker from '@/shared/assets/marker.svg'
 import { ReactNode } from 'react'
 import { LayoutSmartLogo } from '@/shared/ui'

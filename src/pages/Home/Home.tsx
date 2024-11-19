@@ -24,6 +24,7 @@ const mockProducts: Product[] = [
 		isBestSeller: false,
 		onSale: false,
 		clearance: false,
+		qty: 5,
 	},
 	{
 		id: 2,
@@ -37,6 +38,7 @@ const mockProducts: Product[] = [
 		isBestSeller: false,
 		onSale: false,
 		clearance: false,
+		qty: 3,
 	},
 	{
 		id: 3,
@@ -50,6 +52,7 @@ const mockProducts: Product[] = [
 		isBestSeller: false,
 		onSale: false,
 		clearance: false,
+		qty: 4,
 	},
 	{
 		id: 4,
@@ -63,6 +66,7 @@ const mockProducts: Product[] = [
 		isBestSeller: false,
 		onSale: false,
 		clearance: false,
+		qty: 3,
 	},
 	{
 		id: 5,
@@ -75,6 +79,7 @@ const mockProducts: Product[] = [
 		isBestSeller: false,
 		onSale: false,
 		clearance: false,
+		qty: 4,
 	},
 	{
 		id: 6,
@@ -88,6 +93,7 @@ const mockProducts: Product[] = [
 		isBestSeller: false,
 		onSale: false,
 		clearance: false,
+		qty: 5,
 	},
 	{
 		id: 7,
@@ -101,6 +107,7 @@ const mockProducts: Product[] = [
 		isBestSeller: false,
 		onSale: false,
 		clearance: false,
+		qty: 15,
 	},
 	{
 		id: 8,
@@ -114,6 +121,7 @@ const mockProducts: Product[] = [
 		isBestSeller: false,
 		onSale: false,
 		clearance: false,
+		qty: 15,
 	},
 ]
 

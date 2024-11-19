@@ -5,6 +5,7 @@ export interface Product {
 	description: string
 	price: number
 	code: number
+	qty: number
 	isNew: boolean
 	isBestSeller: boolean
 	onSale: boolean
