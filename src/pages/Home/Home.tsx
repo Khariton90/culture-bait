@@ -136,7 +136,7 @@ const mockProducts: Product[] = [
 ]
 
 export function Home(): JSX.Element {
-	const [isOpen, setIsOpen] = useState(true)
+	const [isOpen, setIsOpen] = useState(false)
 
 	const toggleCart = () => {
 		setIsOpen(prev => !prev)

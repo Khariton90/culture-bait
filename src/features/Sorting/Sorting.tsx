@@ -10,39 +10,16 @@ export function Sorting(): JSX.Element {
 				<b>Сортировать:</b>
 			</span>
 
-			<CheckRadio
-				key={'price'}
-				value={'по цене'}
-				name={'sorting'}
-				type={'radio'}
-			/>
-
-			<CheckRadio
-				key={'price'}
-				value={'по популярности'}
-				name={'sorting'}
-				type={'radio'}
-			/>
-
-			<CheckRadio
-				key={'price'}
-				value={'по отзывам'}
-				name={'sorting'}
-				type={'radio'}
-			/>
-
-			<CheckRadio
-				key={'price'}
-				value={'по рейтингу'}
-				name={'sorting'}
-				type={'radio'}
-			/>
+			<CheckRadio value={'по цене'} name={'sorting'} type={'radio'} />
+			<CheckRadio value={'по популярности'} name={'sorting'} type={'radio'} />
+			<CheckRadio value={'по отзывам'} name={'sorting'} type={'radio'} />
+			<CheckRadio value={'по рейтингу'} name={'sorting'} type={'radio'} />
 
 			<div>
-				<a href='' datatype='down'>
+				<a href='#' datatype='down'>
 					<ArrowCircleDownIcon />
 				</a>
-				<a href=''>
+				<a href='#'>
 					<ArrowCircleUpIcon />
 				</a>
 			</div>

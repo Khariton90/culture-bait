@@ -8,7 +8,7 @@ interface Props {
 }
 
 export function GoToCart({ toggleCart }: Props): JSX.Element {
-	const total = useAppSelector(({ cartSlice }) => cartSlice.total)
+	const total = useAppSelector(({ CART_TAG }) => CART_TAG.total)
 
 	const handleToggleCart = (evt: MouseEvent<HTMLAnchorElement>) => {
 		evt.preventDefault()

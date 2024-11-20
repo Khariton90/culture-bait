@@ -1,19 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
-import { createApi } from '@/shared/api'
 import { rootReducer } from './RootReducer'
-import { productApi } from '@/entities'
 
-export const api = createApi()
+import { baseApi } from '@/shared/api/baseApi'
 
 export const setupStore = () => {
 	return configureStore({
 		reducer: rootReducer,
 		middleware: getDefaultMiddleware =>
-			getDefaultMiddleware({
-				thunk: {
-					extraArgument: api,
-				},
-			}).concat(productApi.middleware),
+			getDefaultMiddleware().concat(baseApi.middleware),
 	})
 }
 

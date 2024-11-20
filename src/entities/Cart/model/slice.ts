@@ -1,10 +1,9 @@
-import { Product } from '@/entities'
+import { Product, ProductInCart } from '@/entities'
+import { TagsApi } from '@/shared/api/tags.enum'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
-type CartItem = Pick<Product, 'id' | 'qty' | 'price'>
-
 interface ItemsMap {
-	[key: number]: CartItem
+	[key: number]: ProductInCart
 }
 
 interface CartState {
@@ -17,7 +16,7 @@ const initialState: CartState = {
 	total: 0,
 }
 
-function mapToCartItem(product: Product): CartItem {
+function mapToCartItem(product: Product): ProductInCart {
 	return {
 		id: product.id,
 		qty: product.qty,
@@ -26,7 +25,7 @@ function mapToCartItem(product: Product): CartItem {
 }
 
 export const cartSlice = createSlice({
-	name: 'cartSlice',
+	name: TagsApi.CART_TAG,
 	initialState,
 	reducers: {
 		addItemToCart(state, action: PayloadAction<Product>) {

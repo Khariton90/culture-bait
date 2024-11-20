@@ -12,3 +12,5 @@ export interface Product {
 	clearance: boolean
 	categoryId: number
 }
+
+export type ProductInCart = Pick<Product, 'id' | 'qty' | 'price'>

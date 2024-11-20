@@ -1,6 +1,7 @@
 import { Drawer } from '@mui/material'
-import image from '@/shared/images/empty-cart..svg'
-import styles from './styles.module.scss'
+import { useAppSelector } from '@/shared/hooks'
+import { EmptyCart } from './EmptyCart'
+import { FilledCart } from './FilledCart'
 
 interface Props {
 	toggleCart: () => void
@@ -8,19 +9,13 @@ interface Props {
 }
 
 export function Cart({ toggleCart, isOpen }: Props): JSX.Element {
+	const values = useAppSelector(({ CART_TAG }) =>
+		Object.values(CART_TAG.itemsMap)
+	)
+
 	return (
 		<Drawer anchor={'right'} open={isOpen} onClose={toggleCart}>
-			<div className={styles.cart}>
-				<section className={styles.empty}>
-					<img src={image} className={styles.image} alt='Корзина пуста' />
-					<h2 className={styles.title}>Пока тут пусто</h2>
-					<span className={styles.smallGrey}>Добавьте покупки в заказ</span>
-					<br />
-					<span className={styles.smallGrey}>
-						А мы доставим ваш заказ от 2000 ₽
-					</span>
-				</section>
-			</div>
+			{!values.length ? <EmptyCart /> : <FilledCart products={values} />}
 		</Drawer>
 	)
 }
