@@ -1,46 +1,19 @@
 import ratingIcon from '@/shared/images/icons/rating.svg'
-import { Button, ButtonGroup } from '@mui/material'
-import {
-	addOneItem,
-	Product,
-	removeItem,
-	removeOneItem,
-	RibbonList,
-} from '@/entities'
-import { ReactNode, useState } from 'react'
+import { Product, RibbonList } from '@/entities'
+import { ReactNode } from 'react'
 import styles from './styles.module.scss'
-import { useAppDispatch } from '@/shared/hooks'
 
 interface Props {
 	product: Product
 	wishSlot: ReactNode
+	addToCardSlot: ReactNode
 }
 
-export function ProductCard({ product, wishSlot }: Props): JSX.Element {
-	const [counter, setCounter] = useState(0)
-	const [isIntoCart, setIsIntoCart] = useState(false)
-
-	const dispatch = useAppDispatch()
-
-	const addToCard = () => {
-		if (!isIntoCart) {
-			setIsIntoCart(() => true)
-		}
-
-		setCounter(prevCount => (prevCount += 1))
-		dispatch(addOneItem(product))
-	}
-
-	const removeFromCard = () => {
-		if (counter - 1 === 0) {
-			setIsIntoCart(() => false)
-			dispatch(removeItem(product))
-		}
-
-		setCounter(prevCount => (prevCount -= 1))
-		dispatch(removeOneItem(product))
-	}
-
+export function ProductCard({
+	product,
+	wishSlot,
+	addToCardSlot,
+}: Props): JSX.Element {
 	return (
 		<article className={styles.card}>
 			<div className={styles.top}>
@@ -53,7 +26,7 @@ export function ProductCard({ product, wishSlot }: Props): JSX.Element {
 					<a href='/' className={styles.rate}>
 						<img src={ratingIcon} alt='Рейтинг' /> <span>3.5</span>
 					</a>
-					{wishSlot}
+					<div>{wishSlot}</div>
 				</div>
 			</div>
 
@@ -75,31 +48,7 @@ export function ProductCard({ product, wishSlot }: Props): JSX.Element {
 					<h4>{product.price} ₽</h4>
 				</div>
 
-				<div className={styles.rowBetween}>
-					{isIntoCart ? (
-						<ButtonGroup size='large' aria-label='small outlined button group'>
-							<Button disabled={counter <= 0} onClick={removeFromCard}>
-								-
-							</Button>
-							<Button disabled>{counter}</Button>
-							<Button disabled={counter >= product.qty} onClick={addToCard}>
-								+
-							</Button>
-						</ButtonGroup>
-					) : (
-						<Button
-							sx={{ color: '#fff' }}
-							color='primary'
-							type={'button'}
-							variant='contained'
-							size='large'
-							disabled={isIntoCart}
-							onClick={addToCard}
-						>
-							В корзину
-						</Button>
-					)}
-				</div>
+				<div className={styles.rowBetween}>{addToCardSlot}</div>
 			</div>
 		</article>
 	)

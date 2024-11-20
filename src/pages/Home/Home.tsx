@@ -4,13 +4,15 @@ import {
 	BaseProductList,
 	LayoutFooter,
 } from '@/widgets'
-import { Product } from '@/entities'
+import { Cart, Product } from '@/entities'
 import product1 from '@/shared/assets/product1.jpg'
 import product2 from '@/shared/assets/product2.jpg'
 import product3 from '@/shared/assets/product3.jpg'
 import './Home.scss'
 import { Filter } from '@/features/Filter'
 import { Sorting } from '@/features'
+import { useState } from 'react'
+import { GoToCart } from '@/features/Cart'
 
 const mockProducts: Product[] = [
 	{
@@ -25,6 +27,7 @@ const mockProducts: Product[] = [
 		onSale: false,
 		clearance: false,
 		qty: 5,
+		categoryId: 0,
 	},
 	{
 		id: 2,
@@ -39,6 +42,7 @@ const mockProducts: Product[] = [
 		onSale: false,
 		clearance: false,
 		qty: 3,
+		categoryId: 0,
 	},
 	{
 		id: 3,
@@ -53,6 +57,7 @@ const mockProducts: Product[] = [
 		onSale: false,
 		clearance: false,
 		qty: 4,
+		categoryId: 0,
 	},
 	{
 		id: 4,
@@ -67,6 +72,7 @@ const mockProducts: Product[] = [
 		onSale: false,
 		clearance: false,
 		qty: 3,
+		categoryId: 0,
 	},
 	{
 		id: 5,
@@ -80,6 +86,7 @@ const mockProducts: Product[] = [
 		onSale: false,
 		clearance: false,
 		qty: 4,
+		categoryId: 0,
 	},
 	{
 		id: 6,
@@ -94,6 +101,7 @@ const mockProducts: Product[] = [
 		onSale: false,
 		clearance: false,
 		qty: 5,
+		categoryId: 0,
 	},
 	{
 		id: 7,
@@ -108,6 +116,7 @@ const mockProducts: Product[] = [
 		onSale: false,
 		clearance: false,
 		qty: 15,
+		categoryId: 0,
 	},
 	{
 		id: 8,
@@ -122,20 +131,33 @@ const mockProducts: Product[] = [
 		onSale: false,
 		clearance: false,
 		qty: 15,
+		categoryId: 0,
 	},
 ]
 
 export function Home(): JSX.Element {
+	const [isOpen, setIsOpen] = useState(true)
+
+	const toggleCart = () => {
+		setIsOpen(prev => !prev)
+	}
+
 	return (
 		<div className='page'>
 			<div className='container'>
-				<LayoutHeader rightSlot={<LayoutNavigation />} />
+				<LayoutHeader
+					rightSlot={
+						<LayoutNavigation
+							goToCartSlot={<GoToCart toggleCart={toggleCart} />}
+						/>
+					}
+				/>
 				<main className='content'>
 					<Filter />
 					<BaseProductList products={mockProducts} sortSlot={<Sorting />} />
 				</main>
 			</div>
-
+			<Cart toggleCart={toggleCart} isOpen={isOpen} />
 			<LayoutFooter />
 		</div>
 	)

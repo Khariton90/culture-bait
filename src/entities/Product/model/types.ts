@@ -10,4 +10,5 @@ export interface Product {
 	isBestSeller: boolean
 	onSale: boolean
 	clearance: boolean
+	categoryId: number
 }

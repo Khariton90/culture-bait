@@ -1,14 +1,21 @@
-import { api } from '../../../app/store/index'
-import { AppDispatch, State } from '@/shared/hooks'
-import { createAsyncThunk } from '@reduxjs/toolkit'
-import { AxiosInstance } from 'axios'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { Product } from '../model'
 
-export const fetchProducts = createAsyncThunk<
-	void,
-	void,
-	{ dispatch: AppDispatch; state: State; extra: AxiosInstance }
->('product/findAll', async () => {
-	const { data } = await api.get('/product')
+//TODO ENV
+const BASE_URL = 'http://localhost:3000/api'
 
-	console.log(data)
+export const productApi = createApi({
+	reducerPath: 'productApi',
+	baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
+	tagTypes: ['Product'],
+	endpoints: builder => ({
+		fetchProducts: builder.query<Product[], number>({
+			query: (limit: number = 10) => ({
+				url: '/product',
+			}),
+			providesTags: ['Product'],
+		}),
+	}),
 })
+
+export const { useFetchProductsQuery } = productApi

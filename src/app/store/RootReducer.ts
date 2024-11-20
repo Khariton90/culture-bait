@@ -1,6 +1,6 @@
-import { productSlice } from '@/entities'
+import { productApi } from '@/entities'
 import { combineReducers } from '@reduxjs/toolkit'
 
 export const rootReducer = combineReducers({
-	[productSlice.name]: productSlice.reducer,
+	[productApi.reducerPath]: productApi.reducer,
 })

@@ -1,6 +1,6 @@
 $btn-size: 60px;
 
-.headerLink {
+.link {
 	background-color: #e3f4e8;
 	width: $btn-size;
 	height: $btn-size;
@@ -8,16 +8,7 @@ $btn-size: 60px;
 	border-radius: $border-radius;
 }
 
-.headerCard {
-	border-radius: $border-radius;
-	width: 124px;
-	height: 60px;
-	@include flexCenter();
-	background-color: $color-green;
-	margin-left: auto;
-}
-
-.navigation {
+.list {
 	@include flexCenter();
 	gap: 20px;
 }

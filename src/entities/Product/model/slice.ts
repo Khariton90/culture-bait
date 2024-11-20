@@ -3,10 +3,12 @@ import { Product } from './types'
 
 interface ProductState {
 	products: Pick<Product, 'id' | 'qty'>[]
+	productList: Product[]
 }
 
 const initialState: ProductState = {
 	products: [],
+	productList: [],
 }
 
 export const productSlice = createSlice({
