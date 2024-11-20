@@ -1,8 +1,22 @@
-.headerCard {
+.btn {
+	position: relative;
 	border-radius: $border-radius;
 	width: 124px;
 	height: 60px;
 	@include flexCenter();
 	background-color: $color-green;
 	margin-left: auto;
+}
+
+.badge {
+	position: absolute;
+	right: -4px;
+	top: -4px;
+	background-color: $color-light;
+	padding: 2px 4px;
+	color: $color-green;
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
+	font-size: 14px;
+	font-weight: 700;
 }

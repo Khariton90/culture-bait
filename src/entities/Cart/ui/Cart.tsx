@@ -17,7 +17,7 @@ export function Cart({ toggleCart, isOpen }: Props): JSX.Element {
 					<span className={styles.smallGrey}>Добавьте покупки в заказ</span>
 					<br />
 					<span className={styles.smallGrey}>
-						А мы доставим ваш заказ от 2000р
+						А мы доставим ваш заказ от 2000 ₽
 					</span>
 				</section>
 			</div>

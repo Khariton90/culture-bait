@@ -53,4 +53,3 @@ export const productSlice = createSlice({
 })
 
 export const { addOneItem, removeOneItem, removeItem } = productSlice.actions
-export default productSlice.reducer

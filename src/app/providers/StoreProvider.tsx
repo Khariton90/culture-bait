@@ -6,7 +6,7 @@ interface StoreProviderProps {
 	children: ReactNode
 }
 
-const store = setupStore()
+export const store = setupStore()
 
 export function StoreProvider({ children }: StoreProviderProps): JSX.Element {
 	return <Provider store={store}>{children}</Provider>

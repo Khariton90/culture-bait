@@ -1,7 +1,13 @@
 import { Button, ButtonGroup } from '@mui/material'
-import { addOneItem, Product, removeItem, removeOneItem } from '@/entities'
+import {
+	addItemToCart,
+	decQty,
+	incQty,
+	Product,
+	removeItemFromCart,
+} from '@/entities'
 import { useAppDispatch } from '@/shared/hooks'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 interface Props {
 	product: Product
@@ -18,27 +24,34 @@ export function AddToCart({ product }: Props): JSX.Element {
 		}
 
 		setCounter(prevCount => (prevCount += 1))
-		dispatch(addOneItem(product))
+		dispatch(addItemToCart({ ...product, qty: 1 }))
 	}
 
-	const removeFromCard = () => {
-		if (counter - 1 === 0) {
-			setIsIntoCart(() => false)
-			dispatch(removeItem(product))
-		}
+	const incQuantity = () => {
+		setCounter(prevCount => (prevCount += 1))
+		dispatch(incQty(product.id))
+	}
 
+	const decQuantity = () => {
 		setCounter(prevCount => (prevCount -= 1))
-		dispatch(removeOneItem(product))
+		dispatch(decQty(product.id))
 	}
+
+	useEffect(() => {
+		if (counter <= 0 && isIntoCart) {
+			setIsIntoCart(() => false)
+			dispatch(removeItemFromCart(product.id))
+		}
+	}, [counter, dispatch, isIntoCart, product.id])
 
 	if (isIntoCart) {
 		return (
 			<ButtonGroup size='large' aria-label='small outlined button group'>
-				<Button disabled={counter <= 0} onClick={removeFromCard}>
+				<Button disabled={counter <= 0} onClick={decQuantity}>
 					-
 				</Button>
 				<Button disabled>{counter}</Button>
-				<Button disabled={counter >= product.qty} onClick={addToCard}>
+				<Button disabled={counter >= product.qty} onClick={incQuantity}>
 					+
 				</Button>
 			</ButtonGroup>
