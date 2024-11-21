@@ -1,14 +1,11 @@
 import { Box, Button, Slider } from '@mui/material'
 import { useState } from 'react'
-import { Categories, Available, Brand, Promotion } from '../model'
-import { CheckRadio } from '@/shared/ui'
+import { FilterEnum } from '../model'
 import styles from './styles.module.scss'
-import cn from 'classnames'
+import { FilterFieldset } from './FilterFieldset'
 
 const MIN_PRICE = 0
 const MAX_PRICE = 10000
-
-const ratings = Array.from(Array(5), (_, index) => index + 1)
 
 function valuetext(value: number) {
 	return `${value}`
@@ -26,19 +23,17 @@ export function Filter(): JSX.Element {
 			<form className={styles.form}>
 				<h3 className={styles.title}>Фильтр</h3>
 
-				<fieldset className={cn(styles.fieldset, styles.double)}>
-					<legend className={styles.legend}>Лучшие предложения</legend>
-					{Object.entries(Promotion).map(([key, value]) => (
-						<CheckRadio key={key} value={value} name={key} type={'checkbox'} />
-					))}
-				</fieldset>
+				<FilterFieldset
+					filter={FilterEnum.Promotion}
+					title='Лучшие предложения'
+					type='checkbox'
+				/>
 
-				<fieldset className={cn(styles.fieldset, styles.double)}>
-					<legend className={styles.legend}>Категории</legend>
-					{Object.entries(Categories).map(([key, value]) => (
-						<CheckRadio key={key} value={value} name={key} type={'checkbox'} />
-					))}
-				</fieldset>
+				<FilterFieldset
+					filter={FilterEnum.Categories}
+					title='Категории'
+					type='checkbox'
+				/>
 
 				<fieldset className={styles.fieldset}>
 					<legend className={styles.legend}>Цена</legend>
@@ -55,38 +50,23 @@ export function Filter(): JSX.Element {
 					</Box>
 				</fieldset>
 
-				<fieldset className={cn(styles.fieldset, styles.rating)}>
-					<legend className={styles.legend}>Рейтинг</legend>
-					{ratings.map(rate => (
-						<CheckRadio
-							key={rate}
-							value={rate.toString()}
-							name={'rating'}
-							type={'radio'}
-							image
-						/>
-					))}
-				</fieldset>
+				<FilterFieldset
+					filter={FilterEnum.Available}
+					title='Рейтинг'
+					type='radio'
+				/>
 
-				<fieldset className={cn(styles.fieldset, styles.double)}>
-					<legend className={styles.legend}>Наличие</legend>
-					{Object.entries(Available).map(([key, value]) => (
-						<CheckRadio key={key} value={value} name={key} type={'checkbox'} />
-					))}
-				</fieldset>
+				<FilterFieldset
+					filter={FilterEnum.Available}
+					title='Наличие'
+					type='checkbox'
+				/>
 
-				<fieldset className={cn(styles.fieldset, styles.double)}>
-					<legend className={styles.legend}>Бренд</legend>
-					{Object.values(Brand).map(value => (
-						<CheckRadio
-							key={value}
-							value={value}
-							name={value}
-							type={'checkbox'}
-						/>
-					))}
-				</fieldset>
-
+				<FilterFieldset
+					filter={FilterEnum.Brand}
+					title='Бренд'
+					type='checkbox'
+				/>
 				<Button color='primary' type={'button'} variant='outlined' size='large'>
 					Очистить фильтр
 				</Button>

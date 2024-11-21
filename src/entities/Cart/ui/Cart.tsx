@@ -9,10 +9,9 @@ interface Props {
 }
 
 export function Cart({ toggleCart, isOpen }: Props): JSX.Element {
-	const values = useAppSelector(({ CART_TAG }) =>
-		Object.values(CART_TAG.itemsMap)
-	)
+	const itemsMap = useAppSelector(({ CART_TAG }) => CART_TAG.itemsMap)
 
+	const values = Object.values(itemsMap)
 	return (
 		<Drawer anchor={'right'} open={isOpen} onClose={toggleCart}>
 			{!values.length ? <EmptyCart /> : <FilledCart products={values} />}
