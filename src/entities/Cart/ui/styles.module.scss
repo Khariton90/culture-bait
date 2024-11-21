@@ -13,9 +13,64 @@
 .empty {
 	margin: auto 0;
 	text-align: center;
+	min-width: 340px;
 }
 
 .smallGrey {
 	color: $color-grey;
 	font-size: 13px;
+}
+
+.item {
+	position: relative;
+
+	padding: 8px;
+	margin: 20px 0;
+}
+
+.remove {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+}
+
+.card {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 340px;
+	max-height: 100px;
+}
+
+.picture {
+	padding-right: 16px;
+
+	& img {
+		max-width: 64px;
+	}
+}
+
+.text {
+	& .cartTitle {
+		font-size: 1rem;
+		margin: 0;
+	}
+
+	& .description {
+		font-size: 12px;
+		color: $color-grey;
+	}
+}
+
+.cardFooter {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 10px;
+	border-top: 1px solid $color-light;
+	padding: 10px 0;
+
+	& .total {
+		font-size: 1rem;
+	}
 }

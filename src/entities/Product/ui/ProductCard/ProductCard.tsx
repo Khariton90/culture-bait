@@ -17,7 +17,12 @@ export function ProductCard({
 	return (
 		<article className={styles.card}>
 			<div className={styles.top}>
-				<RibbonList isNew isBestSeller onSale clearance />
+				<RibbonList
+					isNew={product.isNew}
+					isBestSeller={product.isBestSeller}
+					onSale={product.onSale}
+					clearance={product.clearance}
+				/>
 				<figure className={styles.figure}>
 					<img className='productImage' src={product.img} alt={product.title} />
 				</figure>
@@ -40,7 +45,7 @@ export function ProductCard({
 				<span className={styles.smallGrey}>{product.qty} шт.</span>
 			</div>
 
-			<p className='productDescription'>{product.description}</p>
+			<p className='productDescription clamp'>{product.description}</p>
 
 			<div className={styles.panel}>
 				<div className={styles.rowBetween}>

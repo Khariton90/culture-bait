@@ -1,11 +1,5 @@
 import { Button, ButtonGroup } from '@mui/material'
-import {
-	addItemToCart,
-	decQty,
-	incQty,
-	Product,
-	removeItemFromCart,
-} from '@/entities'
+import { addItemToCart, decQty, incQty, Product } from '@/entities'
 import { useAppDispatch } from '@/shared/hooks'
 import { useEffect, useState } from 'react'
 
@@ -38,11 +32,10 @@ export function AddToCart({ product }: Props): JSX.Element {
 	}
 
 	useEffect(() => {
-		if (counter <= 0 && isIntoCart) {
-			setIsIntoCart(() => false)
-			dispatch(removeItemFromCart(product.id))
+		if (!counter && isIntoCart) {
+			setIsIntoCart(false)
 		}
-	}, [counter, dispatch, isIntoCart, product.id])
+	}, [counter, isIntoCart])
 
 	if (isIntoCart) {
 		return (

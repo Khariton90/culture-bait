@@ -45,6 +45,10 @@ export const cartSlice = createSlice({
 			const item = state.itemsMap[action.payload]
 			item.qty--
 			state.total -= item.price
+
+			if (!item.qty) {
+				delete state.itemsMap[item.id]
+			}
 		},
 		setEmptyCart(state) {
 			state.itemsMap = {}

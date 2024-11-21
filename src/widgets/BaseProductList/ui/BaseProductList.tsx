@@ -1,11 +1,10 @@
-import { Product, ProductCard, useFetchProductsQuery } from '@/entities'
+import { ProductCard, useFetchProductsQuery } from '@/entities'
 import { AddToWishlistButton } from '@/features'
 import { ReactNode } from 'react'
 import { AddToCart } from '@/features/Cart'
 import styles from './styles.module.scss'
 
 interface BaseProductListProps {
-	products?: Product[]
 	sortSlot: ReactNode
 }
 
