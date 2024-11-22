@@ -21,7 +21,7 @@ export function BaseProductList({
 					<ProductCard
 						key={product.id}
 						product={product}
-						wishSlot={<AddToWishlistButton />}
+						wishSlot={<AddToWishlistButton id={product.id} />}
 						addToCardSlot={<AddToCart product={product} />}
 					/>
 				))}

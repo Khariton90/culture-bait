@@ -1,12 +1,21 @@
 import { useState, MouseEvent } from 'react'
 import styles from './styles.module.scss'
+import { ProductId } from '@/entities'
+import { useAppDispatch } from '@/shared/hooks'
+import { toggleWishListProduct } from '@/entities/Wishlist/model'
 
-export function AddToWishlistButton(): JSX.Element {
+interface Props {
+	id: ProductId
+}
+
+export function AddToWishlistButton({ id }: Props): JSX.Element {
 	const [active, setActive] = useState(false)
+	const dispatch = useAppDispatch()
 
 	const handleChange = (evt: MouseEvent<HTMLAnchorElement>) => {
 		evt.preventDefault()
 		setActive(prev => !prev)
+		dispatch(toggleWishListProduct(id))
 	}
 
 	const fill = active ? '#ff9d0b' : '#e3f4e8'

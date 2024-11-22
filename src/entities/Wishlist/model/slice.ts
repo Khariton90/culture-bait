@@ -25,3 +25,5 @@ export const wishListSlice = createSlice({
 		},
 	},
 })
+
+export const { clearWishList, toggleWishListProduct } = wishListSlice.actions
