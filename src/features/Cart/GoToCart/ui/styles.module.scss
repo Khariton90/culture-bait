@@ -6,6 +6,8 @@
 	@include flexCenter();
 	background-color: $color-green;
 	margin-left: auto;
+	cursor: pointer;
+	border: none;
 }
 
 .badge {
@@ -18,6 +20,6 @@
 	box-shadow: $box-shadow;
 	font-size: 0.75rem;
 	font-weight: 700;
-	height: 20px;
-	padding: 0 4px;
+	height: 21px;
+	padding: 4px;
 }

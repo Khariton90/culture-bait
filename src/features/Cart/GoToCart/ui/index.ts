@@ -1,1 +1,1 @@
-export * from './GoToCart'
+export * from './GoToCart.tsx'
