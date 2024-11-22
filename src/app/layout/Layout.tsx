@@ -4,10 +4,8 @@ import { Outlet } from 'react-router-dom'
 export function Layout(): JSX.Element {
 	return (
 		<>
-			<div className='container'>
-				<LayoutHeader rightSlot={<LayoutNavigation />} />
-				<main className='content'>{<Outlet />}</main>
-			</div>
+			<LayoutHeader rightSlot={<LayoutNavigation />} />
+			<main className='content'>{<Outlet />}</main>
 			<LayoutFooter />
 		</>
 	)
