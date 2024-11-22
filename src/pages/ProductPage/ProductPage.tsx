@@ -1,11 +1,12 @@
 import { useParams } from 'react-router-dom'
-import styles from './styles.module.scss'
 import { Breadcrumbs, Typography, Link } from '@mui/material'
-import image from '@/shared/assets/product1.jpg'
 import { BasicTabs } from './BasicTabs'
 import { AddToCart } from '@/features/Cart'
 import { AddToWishlistButton } from '@/features'
+import styles from './styles.module.scss'
+import image from '@/shared/assets/product1.jpg'
 
+//TODO
 const product = {
 	id: 22,
 	img: 'http://localhost:3000/product1.jpg',

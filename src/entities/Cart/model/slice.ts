@@ -1,10 +1,6 @@
-import { Product, ProductInCart } from '@/entities'
+import { ItemsMap, mapToCartProduct, Product } from '@/entities'
 import { TagsApi } from '@/shared/api/tags.enum'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-
-interface ItemsMap {
-	[key: number]: ProductInCart
-}
 
 interface CartState {
 	itemsMap: ItemsMap
@@ -16,22 +12,14 @@ const initialState: CartState = {
 	total: 0,
 }
 
-function mapToCartItem(product: Product): ProductInCart {
-	return {
-		id: product.id,
-		qty: product.qty,
-		price: product.price,
-	}
-}
-
 export const cartSlice = createSlice({
 	name: TagsApi.CART_TAG,
 	initialState,
 	reducers: {
 		addItemToCart(state, action: PayloadAction<Product>) {
-			const item = mapToCartItem(action.payload)
+			const item = mapToCartProduct(action.payload)
 			state.itemsMap[item.id] = item
-			state.total += item.price * item.qty
+			state.total += item.price
 		},
 		removeItemFromCart(state, action: PayloadAction<number>) {
 			const item = state.itemsMap[action.payload]

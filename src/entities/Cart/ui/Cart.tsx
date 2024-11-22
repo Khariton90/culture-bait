@@ -13,7 +13,7 @@ export function Cart({ isOpen, toggleCart }: Props): JSX.Element {
 	const values = Object.values(itemsMap)
 
 	return (
-		<Drawer anchor={'right'} open={isOpen} onClose={() => toggleCart()}>
+		<Drawer anchor={'right'} open={isOpen} onClose={toggleCart}>
 			{!values.length ? <EmptyCart /> : <FilledCart products={values} />}
 		</Drawer>
 	)

@@ -5,10 +5,7 @@ import { useAppDispatch, useAppSelector } from '@/shared/hooks'
 import { ButtonGroup, Button } from '@mui/material'
 import { decQty, incQty, removeItemFromCart } from '@/entities'
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined'
-
-function mapToProductIds(products: ProductInCart[]): number[] {
-	return products.map(item => item.id)
-}
+import { mapToProductIds } from '../lib/mapToProductIds'
 
 type Props = {
 	products: ProductInCart[]
@@ -18,15 +15,11 @@ export function FilledCart({ products }: Props): JSX.Element {
 	const { data: productList } = useGetProductsByIdsQuery({
 		productIds: mapToProductIds(products),
 	})
-
 	const { total, itemsMap } = useAppSelector(({ CART_TAG }) => CART_TAG)
-
 	const dispatch = useAppDispatch()
-
 	const incQuantity = (product: Product) => {
 		dispatch(incQty(product.id))
 	}
-
 	const decQuantity = (product: Product) => {
 		dispatch(decQty(product.id))
 	}

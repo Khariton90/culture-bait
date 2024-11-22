@@ -1,7 +1,6 @@
 import { Button, ButtonGroup } from '@mui/material'
 import { addItemToCart, decQty, incQty, Product } from '@/entities'
-import { useAppDispatch } from '@/shared/hooks'
-import { useEffect, useState } from 'react'
+import { useAppDispatch, useAppSelector } from '@/shared/hooks'
 import styles from './styles.module.scss'
 
 interface Props {
@@ -10,44 +9,29 @@ interface Props {
 }
 
 export function AddToCart({ product, size = 'large' }: Props): JSX.Element {
-	const [counter, setCounter] = useState(0)
-	const [isIntoCart, setIsIntoCart] = useState(false)
+	const itemsMap = useAppSelector(({ CART_TAG }) => CART_TAG.itemsMap)
 	const dispatch = useAppDispatch()
-
-	const addToCard = () => {
-		if (!isIntoCart) {
-			setIsIntoCart(() => true)
-		}
-
-		setCounter(prevCount => (prevCount += 1))
-		dispatch(addItemToCart({ ...product, qty: 1 }))
-	}
-
 	const incQuantity = () => {
-		setCounter(prevCount => (prevCount += 1))
 		dispatch(incQty(product.id))
 	}
-
 	const decQuantity = () => {
-		setCounter(prevCount => (prevCount -= 1))
 		dispatch(decQty(product.id))
 	}
 
-	useEffect(() => {
-		if (!counter && isIntoCart) {
-			setIsIntoCart(false)
-		}
-	}, [counter, isIntoCart])
+	const productItem = itemsMap[product.id]
 
-	if (isIntoCart) {
+	if (productItem) {
 		return (
 			<div className={styles.addToCart}>
 				<ButtonGroup size={size} aria-label='small outlined button group'>
-					<Button disabled={counter <= 0} onClick={decQuantity}>
+					<Button disabled={productItem.qty <= 0} onClick={decQuantity}>
 						-
 					</Button>
-					<Button disabled>{counter}</Button>
-					<Button disabled={counter >= product.qty} onClick={incQuantity}>
+					<Button disabled>{productItem.qty}</Button>
+					<Button
+						disabled={productItem.qty >= product.qty}
+						onClick={incQuantity}
+					>
 						+
 					</Button>
 				</ButtonGroup>
@@ -63,8 +47,7 @@ export function AddToCart({ product, size = 'large' }: Props): JSX.Element {
 				type={'button'}
 				variant='contained'
 				size={size}
-				disabled={isIntoCart}
-				onClick={addToCard}
+				onClick={() => dispatch(addItemToCart(product))}
 			>
 				В корзину
 			</Button>
