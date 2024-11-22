@@ -7,7 +7,7 @@ interface CheckRadioProps {
 	name: string
 	type: 'checkbox' | 'radio'
 	image?: boolean
-	onChange?: (query: string, checked: boolean) => void
+	onChange?: (query: string, checked: boolean, type?: string) => void
 }
 
 export function CheckRadio({
@@ -21,8 +21,14 @@ export function CheckRadio({
 		if (!onChange) {
 			return
 		}
-		const query = `${evt.target.name.toLowerCase()}`
-		onChange(query, evt.target.checked)
+		let query = `${evt.target.name.toLowerCase()}`
+
+		if (type === 'radio') {
+			const dataset = evt.target.getAttribute('data-id')!
+			query = dataset
+		}
+
+		onChange(query, evt.target.checked, type)
 	}
 
 	return (
@@ -34,6 +40,7 @@ export function CheckRadio({
 				className='visually-hidden'
 				name={name}
 				value={value}
+				data-id={value}
 				onChange={handleChange}
 			/>
 		</label>

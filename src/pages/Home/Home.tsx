@@ -5,12 +5,11 @@ import {
 	LayoutFooter,
 } from '@/widgets'
 import { Cart } from '@/entities'
-
-import './Home.scss'
 import { Filter } from '@/features/Filter'
 import { Sorting } from '@/features'
 import { useState } from 'react'
 import { GoToCart } from '@/features/Cart'
+import './Home.scss'
 
 export function Home(): JSX.Element {
 	const [isOpen, setIsOpen] = useState(false)

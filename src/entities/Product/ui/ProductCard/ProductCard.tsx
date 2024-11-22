@@ -2,6 +2,7 @@ import ratingIcon from '@/shared/images/icons/rating.svg'
 import { Product, RibbonList } from '@/entities'
 import { ReactNode } from 'react'
 import styles from './styles.module.scss'
+import { Link } from 'react-router-dom'
 
 interface Props {
 	product: Product
@@ -14,8 +15,11 @@ export function ProductCard({
 	wishSlot,
 	addToCardSlot,
 }: Props): JSX.Element {
+	const productLink = `/catalog/${product.id}`
+
 	return (
 		<article className={styles.card}>
+			<Link className={styles.link} to={productLink}></Link>
 			<div className={styles.top}>
 				<RibbonList
 					isNew={product.isNew}
@@ -28,9 +32,9 @@ export function ProductCard({
 				</figure>
 
 				<div className={styles.feed}>
-					<a href='/' className={styles.rate}>
+					<div className={styles.rate}>
 						<img src={ratingIcon} alt='Рейтинг' /> <span>3.5</span>
-					</a>
+					</div>
 					<div>{wishSlot}</div>
 				</div>
 			</div>

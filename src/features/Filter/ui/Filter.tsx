@@ -51,7 +51,7 @@ export function Filter(): JSX.Element {
 				</fieldset>
 
 				<FilterFieldset
-					filter={FilterEnum.Available}
+					filter={FilterEnum.Rating}
 					title='Рейтинг'
 					type='radio'
 				/>

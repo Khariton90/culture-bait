@@ -4,3 +4,7 @@
 	align-items: center;
 	flex-direction: $direction;
 }
+
+@mixin transition($value: all) {
+	transition: $value 0.2s ease;
+}

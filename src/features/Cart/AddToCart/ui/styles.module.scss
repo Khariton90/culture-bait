@@ -1,8 +1,4 @@
-.headerCard {
-	border-radius: $border-radius;
-	width: 124px;
-	height: 60px;
-	@include flexCenter();
-	background-color: $color-green;
-	margin-left: auto;
+.addToCart {
+	position: relative;
+	z-index: 2;
 }

@@ -34,6 +34,8 @@ export const cartSlice = createSlice({
 			state.total += item.price * item.qty
 		},
 		removeItemFromCart(state, action: PayloadAction<number>) {
+			const item = state.itemsMap[action.payload]
+			state.total -= item.price * item.qty
 			delete state.itemsMap[action.payload]
 		},
 		incQty(state, action: PayloadAction<number>) {

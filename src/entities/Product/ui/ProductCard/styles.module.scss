@@ -3,6 +3,19 @@
 	display: flex;
 	flex-direction: column;
 	position: relative;
+	@include transition(filter);
+	filter: brightness(100%);
+	&:hover {
+		@include transition(filter);
+		filter: brightness(110%);
+	}
+}
+
+.link::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 1;
 }
 
 .figure {
@@ -25,6 +38,7 @@
 
 .feed {
 	position: absolute;
+	z-index: 2;
 	bottom: 4px;
 	right: 4px;
 	display: flex;

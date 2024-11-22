@@ -12,8 +12,6 @@ import {
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const ratings = Array.from(Array(5), (_, index) => index + 1)
-
 const fields = {
 	[FilterEnum.Available]: Available,
 	[FilterEnum.Brand]: Brand,
@@ -33,9 +31,14 @@ export function FilterFieldset({ filter, title, type }: Props) {
 	const [list, setList] = useState<string[]>([])
 	const navigate = useNavigate()
 
-	const onChange = (query: string, checked: boolean) => {
-		if (checked) {
+	const onChange = (query: string, checked: boolean, type = 'checkbox') => {
+		if (checked && type === 'checkbox') {
 			setList(prev => [...prev, query])
+			return
+		}
+
+		if (checked && type === 'radio') {
+			setList(() => [query])
 			return
 		}
 
@@ -72,10 +75,10 @@ export function FilterFieldset({ filter, title, type }: Props) {
 	return (
 		<fieldset className={cn(styles.fieldset, styles.rating)}>
 			<legend className={styles.legend}>Рейтинг</legend>
-			{ratings.map(rate => (
+			{Object.entries(values).map(([key, value]) => (
 				<CheckRadio
-					key={rate}
-					value={rate.toString()}
+					key={key}
+					value={value}
 					name={'rating'}
 					type={'radio'}
 					image
