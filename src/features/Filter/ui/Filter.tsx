@@ -19,7 +19,7 @@ export function Filter(): JSX.Element {
 	}
 
 	return (
-		<div className={styles.filter}>
+		<aside className={styles.filter}>
 			<form className={styles.form}>
 				<h3 className={styles.title}>Фильтр</h3>
 
@@ -71,6 +71,6 @@ export function Filter(): JSX.Element {
 					Очистить фильтр
 				</Button>
 			</form>
-		</div>
+		</aside>
 	)
 }

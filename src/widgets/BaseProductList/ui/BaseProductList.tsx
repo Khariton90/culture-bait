@@ -14,7 +14,7 @@ export function BaseProductList({
 	const { data: productList } = useFetchProductsQuery()
 
 	return (
-		<div>
+		<section className={styles.base}>
 			{sortSlot}
 			<div className={styles.products}>
 				{productList?.map(product => (
@@ -26,6 +26,6 @@ export function BaseProductList({
 					/>
 				))}
 			</div>
-		</div>
+		</section>
 	)
 }

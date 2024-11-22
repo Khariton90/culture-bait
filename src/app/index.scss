@@ -26,6 +26,12 @@ body {
 	color: $color-black;
 }
 
+h1,
+h2,
+h3 {
+	margin: 0;
+}
+
 a {
 	color: inherit;
 	text-decoration: none;
@@ -35,10 +41,6 @@ ul {
 	padding: 0;
 	margin: 0;
 	list-style-type: none;
-}
-
-.page {
-	min-height: 100vh;
 }
 
 .notFound {
@@ -70,4 +72,10 @@ fieldset {
 	-webkit-line-clamp: 3;
 	-webkit-box-orient: vertical;
 	word-wrap: break-word;
+}
+
+.container {
+	margin: 0 auto;
+	width: clamp(320px, 100%, 1440px);
+	padding: 0 1rem;
 }

@@ -1,18 +1,16 @@
 import cartIcon from '@/shared/assets/cart.svg'
 import styles from './styles.module.scss'
-import { MouseEvent } from 'react'
+import { MouseEvent, useState } from 'react'
 import { useAppSelector } from '@/shared/hooks'
 
-interface Props {
-	toggleCart: () => void
-}
-
-export function GoToCart({ toggleCart }: Props): JSX.Element {
+export function GoToCart(): JSX.Element {
 	const total = useAppSelector(({ CART_TAG }) => CART_TAG.total)
+
+	const [, setIsOpen] = useState(false)
 
 	const handleToggleCart = (evt: MouseEvent<HTMLAnchorElement>) => {
 		evt.preventDefault()
-		toggleCart()
+		setIsOpen(prev => !prev)
 	}
 
 	return (

@@ -6,9 +6,10 @@ import styles from './styles.module.scss'
 
 interface Props {
 	product: Product
+	size?: 'small' | 'large' | 'medium'
 }
 
-export function AddToCart({ product }: Props): JSX.Element {
+export function AddToCart({ product, size = 'large' }: Props): JSX.Element {
 	const [counter, setCounter] = useState(0)
 	const [isIntoCart, setIsIntoCart] = useState(false)
 	const dispatch = useAppDispatch()
@@ -41,7 +42,7 @@ export function AddToCart({ product }: Props): JSX.Element {
 	if (isIntoCart) {
 		return (
 			<div className={styles.addToCart}>
-				<ButtonGroup size='large' aria-label='small outlined button group'>
+				<ButtonGroup size={size} aria-label='small outlined button group'>
 					<Button disabled={counter <= 0} onClick={decQuantity}>
 						-
 					</Button>
@@ -61,7 +62,7 @@ export function AddToCart({ product }: Props): JSX.Element {
 				color='primary'
 				type={'button'}
 				variant='contained'
-				size='large'
+				size={size}
 				disabled={isIntoCart}
 				onClick={addToCard}
 			>

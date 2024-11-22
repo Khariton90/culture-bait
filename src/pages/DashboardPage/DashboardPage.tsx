@@ -1,8 +1,7 @@
 import { List, ListItem, ListItemButton, ListItemText } from '@mui/material'
-
 import styles from './style.module.scss'
 
-export function Dashboard(): JSX.Element {
+export function DashboardPage(): JSX.Element {
 	return (
 		<div className={styles.wrapper}>
 			<header className={styles.header}>

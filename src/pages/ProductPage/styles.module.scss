@@ -1,0 +1,70 @@
+.main {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: 40px 1fr;
+	column-gap: 20px;
+}
+
+.breadCrumps {
+	grid-column: 1/3;
+	display: flex;
+	align-items: center;
+}
+
+.left {
+	display: flex;
+	flex-direction: column;
+}
+
+.preview {
+	@include flexCenter();
+	padding: 40px 20px;
+}
+
+.picture {
+	width: 400px;
+	height: 400px;
+
+	@include flexCenter();
+	border-radius: $border-radius;
+	box-shadow: $box-shadow;
+	& .image {
+		object-fit: contain;
+		width: 100%;
+	}
+}
+
+.title {
+	font-size: 4.4rem;
+	font-stretch: condensed;
+	font-weight: 900;
+	line-height: 7.2rem;
+}
+
+.subTitle {
+	color: $color-grey;
+}
+
+.tabs {
+	padding: 40px 0;
+}
+
+.bottom {
+	display: flex;
+	justify-content: flex-end;
+	padding: 20px;
+}
+
+.wishlist {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	position: relative;
+}
+
+.controls {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px;
+}

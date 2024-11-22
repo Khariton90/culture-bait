@@ -1,7 +1,6 @@
-import { LayoutFooter } from '@/widgets'
 import styles from './styles.module.scss'
 
-export function ManageProduct(): JSX.Element {
+export function ManageProductPage(): JSX.Element {
 	return (
 		<div className={styles.page}>
 			<div className='container'>
@@ -23,7 +22,6 @@ export function ManageProduct(): JSX.Element {
 					</div>
 				</section>
 			</main>
-			<LayoutFooter />
 		</div>
 	)
 }
