@@ -33,7 +33,7 @@ export function BasicTabs(): JSX.Element {
 				</Tabs>
 			</Box>
 			{[0, 1, 2].map(element => (
-				<CustomTabPanel value={value} index={element}>
+				<CustomTabPanel value={value} index={element} key={element}>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolor
 					beatae impedit, esse commodi ratione ducimus sit, doloribus expedita
 					quia consectetur earum atque maxime aperiam repudiandae exercitationem

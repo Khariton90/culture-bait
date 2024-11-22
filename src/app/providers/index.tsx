@@ -6,7 +6,15 @@ import { Route, Routes } from 'react-router-dom'
 import { HomePage, ProductPage, DashboardPage, NotFoundPage } from '@/pages'
 import { ManageProductPage } from '@/pages/ManageProductPage/ManageProductPage'
 import { AppRoute } from '@/shared/types'
-import { Layout } from '../Layout'
+import { Layout } from '../layout'
+
+const routes = {
+	[AppRoute.Home]: <HomePage />,
+	[AppRoute.Product]: <ProductPage />,
+	[AppRoute.Dashboard]: <DashboardPage />,
+	[AppRoute.СreateProduct]: <ManageProductPage />,
+	[AppRoute.NotFound]: <NotFoundPage />,
+}
 
 export function AppProvider() {
 	return (
@@ -15,14 +23,14 @@ export function AppProvider() {
 				<HistoryRouter history={browserHistory}>
 					<Routes>
 						<Route path={AppRoute.Home} element={<Layout />}>
-							<Route index path={AppRoute.Home} element={<HomePage />} />
-							<Route path={AppRoute.Product} element={<ProductPage />} />
-							<Route path={AppRoute.Dashboard} element={<DashboardPage />} />
-							<Route
-								path={AppRoute.СreateProduct}
-								element={<ManageProductPage />}
-							/>
-							<Route path={AppRoute.NotFound} element={<NotFoundPage />} />
+							{Object.entries(routes).map(([path, element], index) => (
+								<Route
+									index={index === 0}
+									path={path}
+									element={element}
+									key={path}
+								/>
+							))}
 						</Route>
 					</Routes>
 				</HistoryRouter>

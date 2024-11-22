@@ -1,5 +1,7 @@
+export type ProductId = number
+
 export interface Product {
-	id: number
+	id: ProductId
 	img: string
 	title: string
 	description: string
