@@ -1,13 +1,16 @@
-import { Badge, Link } from '@mui/material'
+import { Badge, Drawer, Link } from '@mui/material'
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline'
 import styles from './styles.module.scss'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 import { useAppSelector } from '@/shared/hooks'
-import { Cart } from '@/entities'
 import { GoToCart } from '@/features'
 
-export function LayoutNavigation(): JSX.Element {
+interface Props {
+	orderPreviewSlot: ReactNode
+}
+
+export function LayoutNavigation({ orderPreviewSlot }: Props): JSX.Element {
 	const wishListProducts = useAppSelector(({ wishList }) => wishList.products)
 	const [isOpen, setIsOpen] = useState(false)
 
@@ -39,7 +42,15 @@ export function LayoutNavigation(): JSX.Element {
 					</li>
 				</ul>
 			</nav>
-			<Cart isOpen={isOpen} toggleCart={toggleCart} />
+
+			<Drawer
+				sx={{ position: 'relative' }}
+				anchor={'right'}
+				open={isOpen}
+				onClose={toggleCart}
+			>
+				{orderPreviewSlot}
+			</Drawer>
 		</>
 	)
 }
