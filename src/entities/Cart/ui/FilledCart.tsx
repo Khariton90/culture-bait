@@ -33,68 +33,66 @@ export function FilledCart({ products }: Props): JSX.Element {
 	}
 
 	return (
-		<div className={styles.cart}>
-			<section className={styles.filled}>
-				<h2>
-					{productList.length} товара на {total} ₽
-				</h2>
+		<section className={styles.filled}>
+			<h2>
+				{productList.length} товара на {total} ₽
+			</h2>
 
-				{productList.map(product => (
-					<section key={product.id} className={styles.list}>
-						<article className={styles.item}>
-							<div className={styles.remove}>
-								<Button
-									className={styles.remove}
-									onClick={() => dispatch(removeItemFromCart(product.id))}
+			{productList.map(product => (
+				<section key={product.id} className={styles.list}>
+					<article className={styles.item}>
+						<div className={styles.remove}>
+							<Button
+								className={styles.remove}
+								onClick={() => dispatch(removeItemFromCart(product.id))}
+							>
+								<CloseOutlinedIcon />
+							</Button>
+						</div>
+
+						<div className={styles.card}>
+							<picture className={styles.picture}>
+								<source src={product.img} />
+
+								<img src={product.img} />
+							</picture>
+
+							<div className={styles.text}>
+								<h3 className={styles.cartTitle}>{product.title}</h3>
+								<p className={`${styles.description} clamp`}>
+									{product.description}
+								</p>
+							</div>
+						</div>
+
+						<div className={styles.cardFooter}>
+							<div className={styles.total}>
+								<b>{product.price * itemsMap[product.id]?.qty} ₽</b>
+							</div>
+							<div className={styles.controls}>
+								<ButtonGroup
+									size='small'
+									aria-label='small outlined button group'
 								>
-									<CloseOutlinedIcon />
-								</Button>
-							</div>
-
-							<div className={styles.card}>
-								<picture className={styles.picture}>
-									<source src={product.img} />
-
-									<img src={product.img} />
-								</picture>
-
-								<div className={styles.text}>
-									<h3 className={styles.cartTitle}>{product.title}</h3>
-									<p className={`${styles.description} clamp`}>
-										{product.description}
-									</p>
-								</div>
-							</div>
-
-							<div className={styles.cardFooter}>
-								<div className={styles.total}>
-									<b>{product.price * itemsMap[product.id]?.qty} ₽</b>
-								</div>
-								<div className={styles.controls}>
-									<ButtonGroup
-										size='small'
-										aria-label='small outlined button group'
+									<Button
+										disabled={product.qty <= 0}
+										onClick={() => decQuantity(product)}
 									>
-										<Button
-											disabled={product.qty <= 0}
-											onClick={() => decQuantity(product)}
-										>
-											-
-										</Button>
-										<Button disabled>{itemsMap[product.id]?.qty}</Button>
-										<Button
-											disabled={itemsMap[product.id]?.qty >= product.qty}
-											onClick={() => incQuantity(product)}
-										>
-											+
-										</Button>
-									</ButtonGroup>
-								</div>
+										-
+									</Button>
+									<Button disabled>{itemsMap[product.id]?.qty}</Button>
+									<Button
+										disabled={itemsMap[product.id]?.qty >= product.qty}
+										onClick={() => incQuantity(product)}
+									>
+										+
+									</Button>
+								</ButtonGroup>
 							</div>
-						</article>
-					</section>
-				))}
-			</section>
-		</div>
+						</div>
+					</article>
+				</section>
+			))}
+		</section>
 	)
 }

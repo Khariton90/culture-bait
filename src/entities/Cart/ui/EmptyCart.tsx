@@ -3,7 +3,7 @@ import styles from './styles.module.scss'
 
 export function EmptyCart(): JSX.Element {
 	return (
-		<div className={styles.cart}>
+		<div className={styles.emptyCart}>
 			<section className={styles.empty}>
 				<img src={image} className={styles.image} alt='Корзина пуста' />
 				<h2 className={styles.title}>Пока тут пусто</h2>
