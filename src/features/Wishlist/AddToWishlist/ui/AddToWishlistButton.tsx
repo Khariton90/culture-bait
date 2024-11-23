@@ -1,15 +1,18 @@
 import { useState, MouseEvent } from 'react'
-import styles from './styles.module.scss'
 import { ProductId } from '@/entities'
-import { useAppDispatch } from '@/shared/hooks'
+import { useAppDispatch, useAppSelector } from '@/shared/hooks'
 import { toggleWishListProduct } from '@/entities/Wishlist/model'
+import { Link } from 'react-router-dom'
+import { AppRoute } from '@/shared/types'
+import styles from './styles.module.scss'
 
 interface Props {
 	id: ProductId
 }
 
 export function AddToWishlistButton({ id }: Props): JSX.Element {
-	const [active, setActive] = useState(false)
+	const wishList = useAppSelector(({ wishList }) => wishList.products)
+	const [active, setActive] = useState<boolean>(wishList[id])
 	const dispatch = useAppDispatch()
 
 	const handleChange = (evt: MouseEvent<HTMLAnchorElement>) => {
@@ -21,7 +24,7 @@ export function AddToWishlistButton({ id }: Props): JSX.Element {
 	const fill = active ? '#ff9d0b' : '#e3f4e8'
 
 	return (
-		<a href='/' className={styles.favorite} onClick={handleChange}>
+		<Link to={AppRoute.Home} className={styles.favorite} onClick={handleChange}>
 			<svg
 				width='20'
 				height='20'
@@ -44,6 +47,6 @@ export function AddToWishlistButton({ id }: Props): JSX.Element {
 					fill={fill}
 				></path>
 			</svg>
-		</a>
+		</Link>
 	)
 }

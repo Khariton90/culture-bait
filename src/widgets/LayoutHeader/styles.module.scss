@@ -6,6 +6,7 @@ $btn-size: 60px;
 	flex-direction: column;
 	gap: 30px;
 }
+
 .headerTop,
 .headerBottom {
 	display: flex;
@@ -42,4 +43,8 @@ $btn-size: 60px;
 	display: flex;
 	flex: 1;
 	gap: 20px;
+}
+
+.options {
+	@include flexCenter();
 }

@@ -1,10 +1,10 @@
 import { IconButton, InputBase, Button, Typography } from '@mui/material'
-import SearchIcon from '@mui/icons-material/Search'
-import SetMealIcon from '@mui/icons-material/SetMeal'
-import styles from './styles.module.scss'
-import marker from '@/shared/assets/marker.svg'
 import { ReactNode } from 'react'
 import { LayoutSmartLogo } from '@/shared/ui'
+import SearchIcon from '@mui/icons-material/Search'
+import SetMealIcon from '@mui/icons-material/SetMeal'
+import marker from '@/shared/assets/marker.svg'
+import styles from './styles.module.scss'
 
 interface Props {
 	rightSlot: ReactNode
@@ -73,7 +73,7 @@ export function LayoutHeader({ rightSlot }: Props): JSX.Element {
 						</div>
 					</div>
 
-					<div>{rightSlot}</div>
+					<div className={styles.options}>{rightSlot}</div>
 				</div>
 			</div>
 		</header>

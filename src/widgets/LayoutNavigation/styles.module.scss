@@ -6,6 +6,7 @@ $btn-size: 60px;
 	height: $btn-size;
 	@include flexCenter();
 	border-radius: $border-radius;
+	border: 1px solid $color-green;
 }
 
 .list {
