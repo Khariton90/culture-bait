@@ -15,11 +15,9 @@ export function ProductCard({
 	wishSlot,
 	addToCardSlot,
 }: Props): JSX.Element {
-	const productLink = `/catalog/${product.id}`
-
 	return (
 		<article className={styles.card}>
-			<Link className={styles.link} to={productLink}></Link>
+			<Link className={styles.link} to={`/catalog/${product.code}`}></Link>
 			<div className={styles.top}>
 				<RibbonList
 					isNew={product.isNew}

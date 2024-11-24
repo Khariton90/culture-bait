@@ -4,7 +4,7 @@ import { baseApi } from '@/shared/api/baseApi'
 export const productApi = baseApi.injectEndpoints({
 	endpoints: build => ({
 		fetchProducts: build.query<Product[], number | void>({
-			query: (limit: number = 10) => ({
+			query: (limit: number = 8) => ({
 				url: `/product`,
 				method: 'GET',
 				params: { limit },
