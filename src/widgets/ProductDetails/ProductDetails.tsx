@@ -1,5 +1,5 @@
 import { useGetProductItemQuery } from '@/entities'
-import { AddToCart, AddToWishlistButton } from '@/features'
+import { AddToCart, AddToWishlistButton, ControlsCart } from '@/features'
 import { BasicTabs } from '@/widgets'
 import { Breadcrumbs, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
@@ -69,7 +69,10 @@ export function ProductDetails({ id }: Props): JSX.Element {
 						<BasicTabs description={product.description} />
 					</div>
 					<div className={styles.bottom}>
-						<AddToCart size='large' product={product} />
+						<AddToCart
+							product={product}
+							controlsSlot={<ControlsCart product={product} />}
+						/>
 					</div>
 				</section>
 			</section>
