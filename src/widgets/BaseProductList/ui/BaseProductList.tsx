@@ -1,5 +1,11 @@
 import { ProductCard, useFetchProductsQuery } from '@/entities'
-import { AddToWishlistButton, Filter, Sorting, AddToCart } from '@/features'
+import {
+	AddToWishlistButton,
+	Filter,
+	Sorting,
+	AddToCart,
+	ControlsCart,
+} from '@/features'
 import styles from './styles.module.scss'
 
 export function BaseProductList(): JSX.Element {
@@ -18,7 +24,12 @@ export function BaseProductList(): JSX.Element {
 									key={product.id}
 									product={product}
 									wishSlot={<AddToWishlistButton id={product.id} />}
-									addToCardSlot={<AddToCart product={product} />}
+									addToCardSlot={
+										<AddToCart
+											product={product}
+											controlsSlot={<ControlsCart product={product} />}
+										/>
+									}
 								/>
 							))}
 						</div>

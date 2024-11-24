@@ -3,7 +3,13 @@ import { AppThemeProvider } from './AppThemeProvider'
 import HistoryRouter from './HistoryRouter'
 import browserHistory from '@/shared/lib/browserHistory'
 import { Route, Routes } from 'react-router-dom'
-import { HomePage, ProductPage, DashboardPage, NotFoundPage } from '@/pages'
+import {
+	HomePage,
+	ProductPage,
+	DashboardPage,
+	NotFoundPage,
+	CheckoutPage,
+} from '@/pages'
 import { ManageProductPage } from '@/pages/ManageProductPage/ManageProductPage'
 import { AppRoute } from '@/shared/types'
 import { Layout } from '../layout'
@@ -14,6 +20,7 @@ const routes = {
 	[AppRoute.Dashboard]: <DashboardPage />,
 	[AppRoute.СreateProduct]: <ManageProductPage />,
 	[AppRoute.NotFound]: <NotFoundPage />,
+	[AppRoute.Checkout]: <CheckoutPage />,
 }
 
 export function AppProvider() {

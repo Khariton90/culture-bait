@@ -1,13 +1,3 @@
-.title {
-	margin: 0;
-}
-
-.empty {
-	margin: auto 0;
-	text-align: center;
-	min-width: 360px;
-}
-
 .smallGrey {
 	color: $color-grey;
 	font-size: 13px;
@@ -15,18 +5,8 @@
 
 .item {
 	position: relative;
-
 	padding: 8px;
 	margin: 20px 0;
-}
-
-.emptyCart {
-	padding: 30px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	height: 100%;
-	position: relative;
 }
 
 .card {

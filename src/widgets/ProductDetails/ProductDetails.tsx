@@ -31,7 +31,9 @@ export function ProductDetails({ id }: Props): JSX.Element {
 						<Link color='inherit' to={AppRoute.Home}>
 							Главная
 						</Link>
-						<Typography sx={{ color: 'text.primary' }}>{id}</Typography>
+						<Typography sx={{ color: 'text.primary' }}>
+							{product.title}
+						</Typography>
 					</Breadcrumbs>
 				</div>
 				<section className={styles.left}>

@@ -2,13 +2,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Product } from './types'
 
 interface ProductState {
-	products: Pick<Product, 'id' | 'qty'>[]
-	productList: Product[]
+	products: Pick<Product, 'id' | 'qty' | 'code'>[]
 }
 
 const initialState: ProductState = {
 	products: [],
-	productList: [],
 }
 
 export const productSlice = createSlice({
@@ -20,12 +18,16 @@ export const productSlice = createSlice({
 				item => item.id === action.payload.id
 			)
 
-			if (index === -1) {
-				state.products.push({ id: action.payload.id, qty: action.payload.qty })
+			if (index !== -1) {
+				state.products[index].qty += 1
 				return
 			}
 
-			state.products[index].qty += 1
+			state.products.push({
+				id: action.payload.id,
+				qty: action.payload.qty,
+				code: action.payload.code,
+			})
 		},
 
 		removeOneItem(state, action: PayloadAction<Product>) {
@@ -33,21 +35,18 @@ export const productSlice = createSlice({
 				item => item.id === action.payload.id
 			)
 
-			if (index === -1) {
-				return
+			if (index !== -1) {
+				state.products[index].qty -= 1
 			}
-
-			state.products[index].qty -= 1
 		},
 		removeItem(state, action: PayloadAction<Product>) {
 			const index = state.products.findIndex(
 				item => item.id === action.payload.id
 			)
 
-			if (index === -1) {
-				return
+			if (index !== -1) {
+				state.products.splice(index, 1)
 			}
-			state.products.splice(index, 1)
 		},
 	},
 })
